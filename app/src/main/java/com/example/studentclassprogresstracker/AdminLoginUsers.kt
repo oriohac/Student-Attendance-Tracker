@@ -3,6 +3,7 @@ package com.example.studentclassprogresstracker
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -14,13 +15,26 @@ class AdminLoginUsers : AppCompatActivity() {
     private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
         setContentView(R.layout.activity_admin_login_users)
         registerBtn.setOnClickListener {
             createAccount()
 
         }
+        delete.setOnClickListener {
+            deleteuser()
+        }
         updatebtn.setOnClickListener{
             update()
+        }
+    }
+
+    private fun deleteuser() {
+        database = FirebaseDatabase.getInstance().getReference()
+        database.child("Users").removeValue().addOnSuccessListener {
+            Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -32,8 +46,9 @@ class AdminLoginUsers : AppCompatActivity() {
         val Email = emailreg.text.toString()
         val Specialid = specialid.text.toString()
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
+        val email = "$Email"
         val usersx = User(Firstname,Lastname,Username,Email,Specialid,Users)
-        database.child("Users").child(uid).setValue(usersx)
+        database.child("Users").child(email).setValue(usersx)
     }
 
 
@@ -104,6 +119,7 @@ class AdminLoginUsers : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().getReference("Users")
         val user = User(Firstname, Lastname, Username, Email,Specialid, Users)
+
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
         database.child(uid).setValue(user).addOnCompleteListener { task ->
 

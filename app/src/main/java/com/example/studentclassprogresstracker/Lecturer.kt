@@ -3,6 +3,7 @@ package com.example.studentclassprogresstracker
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -15,15 +16,20 @@ import kotlinx.android.synthetic.main.activity_admin_login_users.*
 import kotlinx.android.synthetic.main.activity_lecturer.*
 import kotlinx.android.synthetic.main.activity_student_qrgenerator.*
 import java.util.*
-import java.util.logging.Logger.global
 
 class Lecturer : AppCompatActivity() {
 
     private lateinit var database : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lecturer)
 
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
+        setContentView(R.layout.activity_lecturer)
+toReport.setOnClickListener {
+    val intent = Intent(applicationContext, LecturerReport::class.java)
+    startActivity(intent)
+}
 
         val valueOfCourses = arrayListOf(
             "First Semester Year 1",
@@ -73,18 +79,22 @@ class Lecturer : AppCompatActivity() {
         val calen = Calendar.getInstance()
 
         val day = calen.get(Calendar.DAY_OF_MONTH)
-        var month = calen.get(Calendar.MONTH)
+        var month = calen.get(Calendar.MONTH)+1
         val year = calen.get(Calendar.YEAR)
-        val date: String = "" + day + "-" + month ++  + "-" + year
+        val date: String = "" + day + "-" + month  + "-" + year
+
 
         val mylistview = leccourseslist
-        val adapter =
-            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, valueOfCourses)
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, valueOfCourses)
         mylistview.adapter = adapter
         mylistview.setOnItemClickListener { parent, view, position, id ->
+
             if (position == 1) {
                 database = FirebaseDatabase.getInstance().getReference("SigninData")
                     .child(valueOfCourses[1]).child("$date")
+
+
+
                 val scanner = IntentIntegrator(this)
                 scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
                 scanner.setBeepEnabled(true)
@@ -101,152 +111,284 @@ class Lecturer : AppCompatActivity() {
 
 
             if (position == 2) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[2]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 3) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[3]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 4) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[4]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 6) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[6]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 7) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[7]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 8) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[8]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
 
             if (position == 10) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[10]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 11) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[11]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 12) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[12]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 13) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[13]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
             if (position == 14) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[14]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
 
             }
 
             if (position == 16) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[16]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 17) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[17]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 18) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[18]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 19) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[19]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 20) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[20]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 22) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[22]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 23) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[23]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 24) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[24]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 25) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[25]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
 
             if (position == 27) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[27]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 28) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[28]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
 
             if (position == 29) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[29]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 30) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[30]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 32) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[32]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 33) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[33]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 34) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[34]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
 
             if (position == 35) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[35]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 36) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[36]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 38) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[38]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 39) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[39]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 40) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[40]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
             if (position == 41) {
-                val intent = Intent (applicationContext, LecturerQRScanner::class.java)
-                startActivity(intent)
+                database = FirebaseDatabase.getInstance().getReference("SigninData")
+                    .child(valueOfCourses[41]).child("$date")
+                val scanner = IntentIntegrator(this)
+                scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+                scanner.setBeepEnabled(true)
+                scanner.initiateScan()
             }
 
 
@@ -264,7 +406,11 @@ class Lecturer : AppCompatActivity() {
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show()
                 } else {
 
-                   database.push().setValue(result.contents).addOnCompleteListener(
+                    val presentid = database.push().key
+                   val id = "$presentid"
+                    val pres = UserL(result.contents,id)
+
+                   database.child(presentid.toString()).setValue(pres).addOnCompleteListener(
                         OnCompleteListener<Void?> {
 
                             Toast.makeText(this, "Scanned: " + result.contents, Toast.LENGTH_LONG)
@@ -276,4 +422,10 @@ class Lecturer : AppCompatActivity() {
             }
         }
     }
+    companion object{
+        const val FIRSTNAME = "com.example.application.studentclassprogresstracker"
+
+    }
 }
+
+

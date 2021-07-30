@@ -3,6 +3,7 @@ package com.example.studentclassprogresstracker
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -13,6 +14,9 @@ class ParentReport : AppCompatActivity() {
     private  lateinit var database : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
         setContentView(R.layout.activity_parent_report)
         parentcheck.setOnClickListener {
             val username: String = childid.text.toString()
@@ -28,6 +32,7 @@ class ParentReport : AppCompatActivity() {
 
     private fun readData(username: String) {
         val uid = FirebaseAuth.getInstance().uid!!
+
         database = FirebaseDatabase.getInstance().getReference("Userdata")
         database.child(username).get().addOnSuccessListener {
             if (it.exists()){

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
+
     android:layout_height="match_parent"
     tools:context=".Lecturer">
 
@@ -11,21 +12,36 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="97dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
         android:text="Select Your Course And Scan Present Students"
-        android:textSize="34sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="33dp"
         tools:layout_editor_absoluteY="27dp" />
 
+    <Button
+        android:id="@+id/toReport"
+        android:layout_width="284dp"
+        android:layout_height="88dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded"
+        android:text="Check Attendance"
+        android:textAlignment="center"
+        android:textSize="18sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_marginTop="21dp"
-        android:layout_height="1070dp">
+        android:layout_height="688dp"
+        android:layout_marginTop="40dp">
 
         <ListView
             android:id="@+id/leccourseslist"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="487dp" />
     </LinearLayout>
+
 </LinearLayout>

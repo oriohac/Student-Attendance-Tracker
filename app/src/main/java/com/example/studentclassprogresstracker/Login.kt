@@ -25,17 +25,17 @@ class Login : AppCompatActivity() {
 
 
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-        onResume()
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
+        setContentView(R.layout.activity_login)
+
 
 
 
         loginbtn.setOnClickListener {
-            // loginUser()
+            loginUser()
 
-            movetousers()
+            //movetousers()
         }
 
 

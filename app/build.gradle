@@ -56,10 +56,14 @@ dependencies {
     apply plugin: 'com.google.gms.google-services'
     apply plugin: 'com.android.application'
 
+
     apply plugin: 'kotlin-android-extensions'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.journeyapps:zxing-android-embedded:4.2.0'
     implementation 'com.google.zxing:zxingorg:3.3.3'
+
+    //round image
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }

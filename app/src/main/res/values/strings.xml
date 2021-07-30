@@ -5,6 +5,6 @@
         <item>Admin</item>
         <item>Lecturer</item>
         <item>Student</item>
-        <item>Parent</item>
+        <!--<item>Parent</item>-->
     </string-array>
 </resources>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LecturerQRGenerator">
+
+    tools:context=".LecturerQRScanner">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,7 +16,7 @@
             android:layout_height="69dp"
             android:layout_marginTop="218dp"
             android:layout_marginBottom="316dp"
-            android:background="#1C1919"
+            android:background="@drawable/rounded"
             android:backgroundTint="#1C1919"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -3,17 +3,31 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
     tools:context=".Admin">
 
     <Button
         android:id="@+id/adminlogusers"
-        android:layout_width="226dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="64dp"
-        android:text="Register Users"
+        android:layout_width="238dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="380dp"
+        android:background="@drawable/rounded"
+        android:text="Click Here"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="378dp"
+        android:layout_height="137dp"
+        android:layout_marginTop="210dp"
+        android:gravity="center"
+        android:text="Register Update Delete Users"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

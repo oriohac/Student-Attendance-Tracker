@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".StudentQRScanner">
+
+    tools:context=".StudentQRGenerator">
 
     <ImageView
         android:id="@+id/qrcodeimg"
@@ -20,10 +21,9 @@
 
     <EditText
         android:id="@+id/qrtext"
-        android:layout_width="355dp"
+        android:layout_width="326dp"
         android:layout_height="55dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
         android:editable="true"
         android:gravity="center"
         android:hint="Enter Data"
@@ -33,10 +33,12 @@
 
     <Button
         android:id="@+id/generateQRcode"
-        android:layout_width="wrap_content"
+        android:layout_width="209dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginTop="8dp"
+        android:background="@drawable/rounded"
+        android:drawableStart="@drawable/ic_baseline_qr_code_scanner_24"
         android:gravity="center_horizontal|center_vertical"
         android:text="Generate QR Code"
         app:layout_constraintEnd_toEndOf="parent"

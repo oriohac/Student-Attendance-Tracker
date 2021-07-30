@@ -4,31 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Student">
 
-    <TextView
-        android:id="@+id/toscan"
-        android:layout_width="317dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="48dp"
-        android:background="#DDDCDC"
-        android:clickable="true"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:text="Click To Scan"
-        android:textAllCaps="false"
-        android:textSize="38sp"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+    tools:context=".Student">
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="317dp"
         android:layout_height="117dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="88dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:text="Welcome"
@@ -40,21 +23,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/studcheck"
-        android:layout_width="317dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="39dp"
-        android:background="#DDDCDC"
-        android:clickable="true"
-        android:fontFamily="sans-serif-black"
-        android:gravity="center"
-        android:text="Check Progress"
-        android:textAllCaps="false"
-        android:textSize="38sp"
-        android:textStyle="bold"
-        android:typeface="normal"
+    <Button
+        android:id="@+id/buttonGENQR"
+        android:layout_width="268dp"
+        android:layout_height="106dp"
+        android:layout_marginTop="280dp"
+        android:background="@drawable/rounded"
+        android:text="Generate QR Code"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toscan" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

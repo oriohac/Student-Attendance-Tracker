@@ -3,6 +3,7 @@ package com.example.studentclassprogresstracker
 import android.graphics.Bitmap
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,9 @@ class StudentQRGenerator : AppCompatActivity() {
     lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
         setContentView(R.layout.activity_student_qrgenerator)
 
 
@@ -30,7 +34,7 @@ class StudentQRGenerator : AppCompatActivity() {
         generateQRcode.setOnClickListener {
             val data = qrtext.text.toString().trim()
 
-            if (data.isEmpty()) {
+            if (data.isEmpty() ) {
                 Toast.makeText(this, "Enter Value", Toast.LENGTH_SHORT).show()
             } else {
                 /*val calen = Calendar.getInstance()
