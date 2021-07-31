@@ -47,8 +47,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="352dp"
-        android:layout_height="227dp"
+        android:layout_width="351dp"
+        android:layout_height="277dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:orientation="horizontal"

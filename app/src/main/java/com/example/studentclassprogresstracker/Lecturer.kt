@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -22,7 +23,7 @@ class Lecturer : AppCompatActivity() {
     private lateinit var database : DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
         setContentView(R.layout.activity_lecturer)
@@ -90,24 +91,15 @@ toReport.setOnClickListener {
         mylistview.setOnItemClickListener { parent, view, position, id ->
 
             if (position == 1) {
+
                 database = FirebaseDatabase.getInstance().getReference("SigninData")
                     .child(valueOfCourses[1]).child("$date")
-
-
-
                 val scanner = IntentIntegrator(this)
                 scanner.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
                 scanner.setBeepEnabled(true)
                 scanner.initiateScan()
 
-
-
-
             }
-
-
-
-
 
 
             if (position == 2) {

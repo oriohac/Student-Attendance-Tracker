@@ -7,4 +7,43 @@
         <item>Student</item>
         <!--<item>Parent</item>-->
     </string-array>
+    <string name="courses">Course List</string>
+    <string-array name="subjects">
+        <item>Select Course</item>
+        <item>CSC101</item>
+        <item>CSC111</item>
+        <item>CSC112</item>
+        <item>CSC113</item>
+        <item>CSC211</item>
+        <item>CSC212</item>
+        <item>CSC213</item>
+        <item>CSC311</item>
+        <item>CSC312</item>
+        <item>CSC313</item>
+        <item>CSC314</item>
+        <item>CSC315</item>
+        <item>CSC511</item>
+        <item>CSC512</item>
+        <item>CSC513</item>
+        <item>CSC514</item>
+        <item>CSC515</item>
+        <item>CSC121</item>
+        <item>CSC122</item>
+        <item>CSC123</item>
+        <item>CSC124</item>
+        <item>CSC221</item>
+        <item>CSC222</item>
+        <item>CSC223</item>
+        <item>CSC224</item>
+        <item>CSC321</item>
+        <item>CSC322</item>
+        <item>CSC323</item>
+        <item>CSC324</item>
+        <item>CSC325</item>
+        <item>CSC521</item>
+        <item>CSC522</item>
+        <item>CSC523</item>
+        <item>CSC524</item>
+        <item>CSC525</item>
+    </string-array>
 </resources>

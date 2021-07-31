@@ -18,24 +18,24 @@
 
         android:theme="@style/Theme.StudentClassProgressTracker.NoActionBar">
 
-        <activity android:name=".Admin" />
+        <activity android:name=".Admin" android:screenOrientation="nosensor"/>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="nosensor"
             tools:replace="screenOrientation" />
-        <activity android:name=".LecturerReport" />
-        <activity android:name=".StudentReport" />
-        <activity android:name=".LecturerQRScanner" />
-        <activity android:name=".StudentQRGenerator" />
-        <activity android:name=".ParentReport" />
-        <activity android:name=".Student" />
-        <activity android:name=".Lecturer" />
-        <activity android:name=".Parent" />
-        <activity android:name=".AdminLoginUsers" />
-        <activity android:name=".Login" />
+        <activity android:name=".LecturerReport" android:screenOrientation="nosensor"/>
+        <activity android:name=".StudentReport" android:screenOrientation="nosensor"/>
+        <activity android:name=".LecturerQRScanner" android:screenOrientation="nosensor" />
+        <activity android:name=".StudentQRGenerator" android:screenOrientation="nosensor"/>
+        <activity android:name=".ParentReport" android:screenOrientation="nosensor"/>
+        <activity android:name=".Student" android:screenOrientation="nosensor"/>
+        <activity android:name=".Lecturer" android:screenOrientation="nosensor"/>
+        <activity android:name=".Parent" android:screenOrientation="nosensor"/>
+        <activity android:name=".AdminLoginUsers" android:screenOrientation="nosensor"/>
+        <activity android:name=".Login" android:screenOrientation="nosensor"/>
         <activity
             android:name=".MainActivity"
-            >
+            android:screenOrientation="nosensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -11,8 +11,10 @@
         android:id="@+id/editText"
         android:layout_width="350dp"
         android:layout_height="65dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="28dp"
+        android:hint="Search Date Eg: 20-10-2021"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,31 +22,37 @@
         android:id="@+id/lectGetStudReport"
         android:layout_width="268dp"
         android:layout_height="70dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="116dp"
         android:background="@drawable/rounded"
-        android:text="Button"
+        android:text="Report"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userList"
-        android:layout_width="413dp"
+        android:layout_width="match_parent"
         android:layout_height="351dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="304dp"
+        android:layout_marginBottom="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/user_item" />
 
-    <TextView
-        android:id="@+id/show"
-        android:layout_width="304dp"
-        android:layout_height="74dp"
-        android:layout_marginTop="32dp"
-        android:textSize="16sp"
+    <Spinner
+        android:id="@+id/course_choice"
+        android:layout_width="341dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:entries="@array/subjects"
+        android:prompt="@string/courses"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lectGetStudReport" />
+        app:layout_constraintTop_toBottomOf="@+id/lectGetStudReport"
+        tools:ignore="SpeakableTextPresentCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
