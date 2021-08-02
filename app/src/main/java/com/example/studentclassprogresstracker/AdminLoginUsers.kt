@@ -33,8 +33,10 @@ class AdminLoginUsers : AppCompatActivity() {
     }
 
     private fun deleteuser() {
+        val Username = regusername.text.toString()
         database = FirebaseDatabase.getInstance().getReference()
-        database.child("Users").removeValue().addOnSuccessListener {
+        database.child("Userdata").child("$Username").removeValue().addOnSuccessListener {
+            regusername.text.clear()
             Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
         }
     }
@@ -49,7 +51,7 @@ class AdminLoginUsers : AppCompatActivity() {
         val uid = FirebaseAuth.getInstance().currentUser!!.uid
         val email = "$Email"
         val usersx = User(Firstname,Lastname,Username,Email,Specialid,Users)
-        database.child("Users").child(email).setValue(usersx)
+        database.child("Userdata").orderByChild(Username)
     }
 
 
