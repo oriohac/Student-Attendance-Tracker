@@ -1,19 +1,30 @@
 package com.example.studentclassprogresstracker
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.shape.RoundedCornerShape
+
+import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
+
+import com.google.android.material.shape.RoundedCornerTreatment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_admin_login_users.*
 
 class AdminLoginUsers : AppCompatActivity() {
     private lateinit var database: DatabaseReference
+    lateinit var RoundedCornerTreatment : RoundedCornerTreatment
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE)
@@ -28,31 +39,61 @@ class AdminLoginUsers : AppCompatActivity() {
             deleteuser()
         }
         updatebtn.setOnClickListener{
-            update()
+            val Users = userchoicereg.selectedItem.toString()
+            val Firstname = firstName.text.toString()
+            val Lastname = lastName.text.toString()
+            val Username = regusername.text.toString()
+            val Email = emailreg.text.toString()
+            val Specialid = specialid.text.toString()
+            when {
+                TextUtils.isEmpty(Username) -> Toast.makeText(this, "Username is required.", Toast.LENGTH_LONG).show()
+                TextUtils.isEmpty(Email) -> Toast.makeText(this, "email is required.", Toast.LENGTH_LONG).show()
+                TextUtils.isEmpty(Lastname) -> Toast.makeText(this, "surname is required.", Toast.LENGTH_LONG).show()
+                TextUtils.isEmpty(Firstname) -> Toast.makeText(this, "firstname is required.", Toast.LENGTH_LONG).show()
+                TextUtils.isEmpty(Users) -> Toast.makeText(this, "User Type is required.", Toast.LENGTH_LONG).show()
+                TextUtils.isEmpty(Specialid) -> Toast.makeText(this, "SpecialID is required.", Toast.LENGTH_LONG).show()
+                else -> {
+            update(Users, Firstname, Lastname, Username, Email, Specialid)
+        }
+                }
+        }
+
+        /*val shapes = Shapes(
+            small = RoundedCornerShape(4.dp),
+            medium = RoundedCornerShape(16.dp)
+        )*/
+    }
+
+    private fun update(Users: String, Firstname: String, Lastname: String, Username: String, Email: String, Specialid: String) {
+        database = FirebaseDatabase.getInstance().getReference("UserData")
+
+
+        val user = mapOf<String, String>(
+            "firstname" to Firstname,
+            "lastname" to Lastname,
+            "username" to Username,
+            "email" to Email,
+            "users" to Users,
+            "specialid" to Specialid
+
+        )
+
+        database.child(Username).updateChildren(user).addOnSuccessListener{
+            firstName.text.clear()
+            lastName.text.clear()
+            regusername.text.clear()
+            emailreg.text.clear()
+            specialid.text.clear()
+            Toast.makeText(this, "user data updated successfully", Toast.LENGTH_SHORT).show()
+
         }
     }
 
     private fun deleteuser() {
-        val Username = regusername.text.toString()
-        database = FirebaseDatabase.getInstance().getReference()
-        database.child("Userdata").child("$Username").removeValue().addOnSuccessListener {
-            regusername.text.clear()
-            Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show()
-        }
+       val intent = Intent(applicationContext,  DeleteUser::class.java)
+        startActivity(intent)
     }
 
-    fun update() {
-        val Users = userchoicereg.selectedItem.toString()
-        val Firstname = firstName.text.toString()
-        val Lastname = lastName.text.toString()
-        val Username = regusername.text.toString()
-        val Email = emailreg.text.toString()
-        val Specialid = specialid.text.toString()
-        val uid = FirebaseAuth.getInstance().currentUser!!.uid
-        val email = "$Email"
-        val usersx = User(Firstname,Lastname,Username,Email,Specialid,Users)
-        database.child("Userdata").orderByChild(Username)
-    }
 
 
     private fun createAccount() {
@@ -188,47 +229,3 @@ class AdminLoginUsers : AppCompatActivity() {
 
 }
 
-
-
-
-/*
-val Users  = users.selectedItem.toString()
-val Firstname = firstName.text.toString()
-val Lastname = lastName.text.toString()
-val Username = regusername.text.toString()
-val Email = email.text.toString()
-//val users = spin
-
-
-database = FirebaseDatabase.getInstance().getReference("Users")
-val user = User(Firstname,Lastname,Username,Email,Users)
-database.child(Username).setValue(user).addOnSuccessListener {
-    firstName.text.clear()
-    lastName.text.clear()
-    regusername.text.toString()
-    regpassword.text.clear()
-
-
-    Toast.makeText(this, "successfully saved", Toast.LENGTH_SHORT).show()
-}.addOnFailureListener{
-    Toast.makeText(this, "failed", Toast.LENGTH_SHORT).show()
-}*/
-/*
-.addOnSuccessListener {
-    firstName.text.clear()
-    lastName.text.clear()
-    regusername.text.toString()
-    regpassword.text.clear()
-
-    val currentuser = FirebaseAuth.getInstance().currentUser!!.uid
-    val userRef: DatabaseReference = FirebaseDatabase.getInstance().reference.child("Users")
-    val userMap = HashMap<String, Any>()
-    userMap["uid"] = currentuser
-    userMap["firstname"] = firstname
-    userMap["surname"] = lastname
-    userMap["username"] = username
-    userMap["email"] = email
-    userMap["users"] = users
-
-    userRef.child(email).setValue(userMap)
-}*/

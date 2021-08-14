@@ -155,22 +155,7 @@ class Login : AppCompatActivity() {
                     }
                 }
                 }
-           /*     mAuth.signInWithEmailAndPassword(Email, Password).addOnCompleteListener { task ->
 
-           val spin: String = userchioce.selectedItem.toString()
-                        if (task.isSuccessful) {
-                            progressDialog.dismiss()
-                            Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show()
-                            val intent = Intent(applicationContext, Admin::class.java)
-                            startActivity(intent)
-                        } else {
-                            val message = task.exception!!.toString()
-                            Toast.makeText(this, "not registered $message", Toast.LENGTH_LONG)
-                                .show()
-                            FirebaseAuth.getInstance().signOut()
-                            progressDialog.dismiss()
-                        }
-                }*/
             }
 
 
